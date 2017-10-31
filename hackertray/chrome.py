@@ -1,11 +1,13 @@
 from __future__ import print_function
+
 import sqlite3
 import shutil
 import os
 import sys
 
-class Chrome:
+class Chrome(object):
     HISTORY_TMP_LOCATION = '/tmp/hackertray.chrome'
+    
     @staticmethod
     def search(urls, config_folder_path):
         Chrome.setup(config_folder_path)
@@ -20,6 +22,7 @@ class Chrome:
                 result.append(True)
         os.remove(Chrome.HISTORY_TMP_LOCATION)
         return result
+
     @staticmethod
     def setup(config_folder_path):
         file_name = os.path.abspath(config_folder_path+'/History')
